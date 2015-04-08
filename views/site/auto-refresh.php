@@ -7,8 +7,7 @@ $this->title = 'Yii2 Pjax Refresh Button';
 
 $script = <<< JS
 $(document).ready(function() {
-    //setInterval(function(){ $("#refreshButton").click(); }, 3000);
-    $.pjax.click(event, {container: '#w0', url: '/pjax/web/index.php?r=site%2Fauto-refresh'})
+    setInterval(function(){ $("#refreshButton").click(); }, 3000);
 });
 JS;
 $this->registerJs($script);
