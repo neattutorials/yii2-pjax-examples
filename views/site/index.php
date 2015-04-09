@@ -27,9 +27,6 @@ $this->title = 'Yii2 Pjax Refresh Button';
 <span style="font-weight:700">public </span><span style="font-weight:700">function</span> <span style="color:#ff8000">actionIndex</span>()
 {
     $time <span style="color:#00f">=</span> <span style="color:#33f;font-weight:700">date</span>(<span style="color:#093">'H:i:s'</span>);
-<span style="color:#00f">    if</span> (<span style="color:#33f;font-weight:700">Yii</span><span style="color:#00f">::</span>$app<span style="color:#00f">-></span>request<span style="color:#00f">-></span>isPjax) {
-<span style="color:#00f">        return</span> $this<span style="color:#00f">-></span>renderAjax(<span style="color:#093">'index'</span>, [<span style="color:#093">'time'</span> <span style="color:#00f">=></span> $time]);
-    }
 <span style="color:#00f">    return</span> $this<span style="color:#00f">-></span>render(<span style="color:#093">'index'</span>, [<span style="color:#093">'time'</span> <span style="color:#00f">=></span> $time]);
 }
 </pre>

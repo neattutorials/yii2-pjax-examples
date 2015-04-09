@@ -51,19 +51,12 @@ $this->title = 'Yii2 Pjax Multiple Example';
     $security <span style="color:#00f">=</span> <span style="color:#00f">new</span> <span style="color:#33f;font-weight:700">Security</span>();
     $randomString <span style="color:#00f">=</span> $security<span style="color:#00f">-></span>generateRandomString();
     $randomKey <span style="color:#00f">=</span> $security<span style="color:#00f">-></span>generateRandomKey();
-<span style="color:#00f">    return</span> $this<span style="color:#00f">-></span>response(<span style="color:#093">'multiple'</span>, [
+<span style="color:#00f">    return</span> $this<span style="color:#00f">-></span>render(<span style="color:#093">'multiple'</span>, [
         <span style="color:#093">'randomString'</span> <span style="color:#00f">=></span> $randomString,
         <span style="color:#093">'randomKey'</span> <span style="color:#00f">=></span> $randomKey,
     ]);
 }
 
-<span style="font-weight:700">public </span><span style="font-weight:700">function</span> <span style="color:#ff8000">response</span>($view, $params)
-{
-<span style="color:#00f">    if</span> (<span style="color:#33f;font-weight:700">Yii</span><span style="color:#00f">::</span>$app<span style="color:#00f">-></span>request<span style="color:#00f">-></span>isPjax) {
-<span style="color:#00f">        return</span> $this<span style="color:#00f">-></span>renderAjax($view, $params);
-    }
-<span style="color:#00f">    return</span> $this<span style="color:#00f">-></span>render($view, $params);
-}
 </pre>
     </p>
 

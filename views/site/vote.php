@@ -37,14 +37,14 @@ $this->title = 'Yii2 Pjax enablePushState Example';
 {
     $votes <span style="color:#00f">=</span> <span style="color:#33f;font-weight:700">Yii</span><span style="color:#00f">::</span>$app<span style="color:#00f">-></span>session<span style="color:#00f">-></span>get(<span style="color:#093">'votes'</span>, <span style="color:#06f">0</span>);
     <span style="color:#33f;font-weight:700">Yii</span><span style="color:#00f">::</span>$app<span style="color:#00f">-></span>session<span style="color:#00f">-></span>set(<span style="color:#093">'votes'</span>, <span style="color:#00f">++</span>$votes);
-<span style="color:#00f">    return</span> $this<span style="color:#00f">-></span>renderAjax(<span style="color:#093">'vote'</span>);
+<span style="color:#00f">    return</span> $this<span style="color:#00f">-></span>render(<span style="color:#093">'vote'</span>);
 }
 
 <span style="font-weight:700">public </span><span style="font-weight:700">function</span> <span style="color:#ff8000">actionDownvote</span>()
 {
     $votes <span style="color:#00f">=</span> <span style="color:#33f;font-weight:700">Yii</span><span style="color:#00f">::</span>$app<span style="color:#00f">-></span>session<span style="color:#00f">-></span>get(<span style="color:#093">'votes'</span>, <span style="color:#06f">0</span>);
     <span style="color:#33f;font-weight:700">Yii</span><span style="color:#00f">::</span>$app<span style="color:#00f">-></span>session<span style="color:#00f">-></span>set(<span style="color:#093">'votes'</span>, <span style="color:#00f">--</span>$votes);
-<span style="color:#00f">    return</span> $this<span style="color:#00f">-></span>renderAjax(<span style="color:#093">'vote'</span>);
+<span style="color:#00f">    return</span> $this<span style="color:#00f">-></span>render(<span style="color:#093">'vote'</span>);
 }
 </pre>
     </p>

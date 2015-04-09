@@ -41,17 +41,9 @@ $this->title = 'Yii2 Pjax Form Submission Example';
 <span style="color:#00f">    if</span> (<span style="color:#00f">!</span><span style="color:#33f;font-weight:700">is_null</span>($string)) {
         $stringHash <span style="color:#00f">=</span> $security<span style="color:#00f">-></span>generatePasswordHash($string);
     }
-<span style="color:#00f">    return</span> $this<span style="color:#00f">-></span>response(<span style="color:#093">'form-submission'</span>, [
+<span style="color:#00f">    return</span> $this<span style="color:#00f">-></span>render(<span style="color:#093">'form-submission'</span>, [
         <span style="color:#093">'stringHash'</span> <span style="color:#00f">=></span> $stringHash,
     ]);
-}
-
-<span style="font-weight:700">public </span><span style="font-weight:700">function</span> <span style="color:#ff8000">response</span>($view, $params)
-{
-<span style="color:#00f">    if</span> (<span style="color:#33f;font-weight:700">Yii</span><span style="color:#00f">::</span>$app<span style="color:#00f">-></span>request<span style="color:#00f">-></span>isPjax) {
-<span style="color:#00f">        return</span> $this<span style="color:#00f">-></span>renderAjax($view, $params);
-    }
-<span style="color:#00f">    return</span> $this<span style="color:#00f">-></span>render($view, $params);
 }
 </pre>
     </p>

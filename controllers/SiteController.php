@@ -27,30 +27,22 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $time = date('H:i:s');
-        if (Yii::$app->request->isPjax) {
-            return $this->renderAjax('index', ['time' => $time]);
-        }
-        return $this->render('index', ['time' => $time]);
+        return $this->render('index', ['time' => date('H:i:s')]);
     }
 
     public function actionAutoRefresh()
     {
-        $time = date('H:i:s');
-        if (Yii::$app->request->isPjax) {
-            return $this->renderAjax('auto-refresh', ['time' => $time]);
-        }
-        return $this->render('auto-refresh', ['time' => $time]);
+        return $this->render('auto-refresh', ['time' => date('H:i:s')]);
     }
 
     public function actionTime()
     {
-        return $this->response('time-date', ['response' => date('H:i:s')]);
+        return $this->render('time-date', ['response' => date('H:i:s')]);
     }
 
     public function actionDate()
     {
-        return $this->response('time-date', ['response' => date('Y-M-d')]);
+        return $this->render('time-date', ['response' => date('Y-M-d')]);
     }
 
     public function actionMultiple()
@@ -58,7 +50,7 @@ class SiteController extends Controller
         $security = new Security();
         $randomString = $security->generateRandomString();
         $randomKey = $security->generateRandomKey();
-        return $this->response('multiple', [
+        return $this->render('multiple', [
             'randomString' => $randomString,
             'randomKey' => $randomKey,
         ]);
@@ -72,7 +64,7 @@ class SiteController extends Controller
         if (!is_null($string)) {
             $stringHash = $security->generatePasswordHash($string);
         }
-        return $this->response('form-submission', [
+        return $this->render('form-submission', [
             'stringHash' => $stringHash,
         ]);
     }
@@ -86,21 +78,14 @@ class SiteController extends Controller
     {
         $votes = Yii::$app->session->get('votes', 0);
         Yii::$app->session->set('votes', ++$votes);
-        return $this->renderAjax('vote');
+        return $this->render('vote');
     }
 
     public function actionDownvote()
     {
         $votes = Yii::$app->session->get('votes', 0);
         Yii::$app->session->set('votes', --$votes);
-        return $this->renderAjax('vote');
+        return $this->render('vote');
     }
 
-    protected function response($view, $params = [])
-    {
-        if (Yii::$app->request->isPjax) {
-            return $this->renderAjax($view, $params);
-        }
-        return $this->render($view, $params);
-    }
 }
